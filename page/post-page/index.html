@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Post Card</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+  <!-- Card -->
+  <div class="post-card">
+    <div class="row">
+      <div class="avatar-wrap">
+        <img class="avatar" src="/Content/images/avatar/avatar.png" alt="avatar">
+      </div>
+
+      <div class="content">
+        <a class="author" href="#">Vo Tan Duc</a>
+
+        <div class="title-line">
+          <a class="title-link" href="/documentation/detail/666" rel="noopener">
+            <h3 class="title">Hiển thị danh sách diễn viên và lương từ CSDL và tìm kiếm theo tên trong ASP.NET MVC</h3>
+          </a>
+
+          <span class="tags">
+            <a class="tag" href="#">c#</a>
+            <a class="tag" href="#">sql-server</a>
+            <a class="tag" href="#">asp.net-mvc</a>
+          </span>
+        </div>
+
+        <p class="excerpt">
+          <a class="title-link" href="/documentation/detail/666">
+            Tạo Layout Layout.cshtml Tạo Model (bằng EntityFramework) File SQL dùng để tạo Model USE [master] GO /******
+            Object: Database [ACTOR] Script Date: 7/11/2023 8:01:25 PM ******/ CREATE...
+          </a>
+        </p>
+
+        <div class="meta">
+          <span class="m">
+            <img class="mini-avatar" src="/Content/images/avatar/avatar.png" alt="mini">
+            <a class="author2" href="#">Vo Tan Duc</a>
+            <span>đã đăng</span>
+            <span class="time">3 năm trước</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <ul class="pagination">
+    <li class="page-item active">
+      <a class="page-link" href="javascript:void(0)">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=2">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=3">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=4">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=5">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=6">6</a>
+    </li>
+    <li class="page-item disabled">
+      <a class="page-link" href="javascript:void(0)">...</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=14">14</a>
+    </li>
+
+    <li class="page-item">
+      <a class="page-link" href="/documentation?page=2" aria-label="Next">
+        <i class="fa fa-angle-double-right"></i>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>
+
+  <!-- JS (hiện tại không có JS, nhưng để sẵn cấu trúc) -->
+  <script src="./app.js" defer></script>
+</body>
+</html>
