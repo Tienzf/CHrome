@@ -1,0 +1,52 @@
+:root{
+  --bg:#0b1220;
+  --card:#0f172a;
+  --text:#e5e7eb;
+  --primary:#3b82f6;
+}
+
+body{
+  margin:0;
+  font-family:system-ui;
+  background:var(--bg);
+  color:var(--text);
+}
+
+.header{
+  padding:20px;
+  background:#111827;
+  text-align:center;
+}
+
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 20px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(0,0,0,.4);
+}
+
+.card img{
+  width:100%;
+  display:block;
+}
+
+.card-body{
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+button{
+  background:none;
+  border:none;
+  color:var(--primary);
+  font-size:20px;
+  cursor:pointer;
+}

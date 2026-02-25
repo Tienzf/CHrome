@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Course List</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="./styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header-bar" id="page-header">
+    <div class="content-header">
+      <div class="content-header-section mr-20">
+        <div class="content-header-item">
+          <a href="/" style="display:inline-flex;align-items:center;">
+            <img src="/Content/images/logo/kteam_w_70x32.png" alt="HowKteam" style="height:32px;width:auto;">
+          </a>
+        </div>
+      </div>
+
+      <div class="content-header-section d-none d-lg-inline mr-auto">
+        <ul class="nav-main-header">
+          <li><a href="/about">Giới thiệu</a></li>
+          <li><a href="/learn">Khóa học</a></li>
+          <li><a href="/question">Hỏi đáp</a></li>
+          <li><a href="/documentation">Bài viết</a></li>
+          <li><a href="/about/contact">Liên hệ</a></li>
+        </ul>
+      </div>
+
+      <div class="header-actions">
+        <a class="btn btn-circle btn-dual-secondary" href="/search" title="Tìm kiếm">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </a>
+
+        <div class="btn-group" role="group">
+          <button type="button"
+                  class="btn btn-circle btn-dual-secondary"
+                  data-toggle="dropdown"
+                  aria-expanded="false"
+                  title="Tạo mới">
+            <i class="fa-solid fa-pen"></i>
+          </button>
+          <div class="dropdown-menu min-width-150">
+            <a class="dropdown-item" href="#">
+              <i class="fa-regular fa-circle-question"></i> Đặt câu hỏi
+            </a>
+            <a class="dropdown-item" href="/documentation/create">
+              <i class="fa-regular fa-file-lines"></i> Viết bài
+            </a>
+            <a class="dropdown-item" href="/series/create">
+              <i class="fa-solid fa-list"></i> Tạo series
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <div class="container">
+    <div class="row" id="course-list">
+
+      <!-- ITEM -->
+      <div class="col-md-6 col-lg-4 col-xl-3">
+        <div class="block block-link-shadow ribbon-success">
+          <div class="options-container">
+            <img class="img-fluid options-item w-100"
+                 src="https://f.howkteam.vn/Upload/cke/images/1_LOGO%20SHOW%20WEB/1_C%23_AutoC%23/14_Qu%E1%BA%A3n%20l%C3%BD%20qu%C3%A1n%20cafe%20C%23%20winform/QuanLyQuanCaFe.jpg"
+                 alt="">
+            <div class="options-overlay bg-black-op-75">
+              <div class="options-overlay-content">
+                <a class="btn btn-secondary"
+                   href="javascript:void(0);"
+                   data-src="https://www.youtube.com/embed/tu2k9ZrDlWA?autoplay=1"
+                   onclick="openVideo(this)">
+                  Giới thiệu
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="block-content">
+            <h4>Lập trình phần mềm Quản lý quán cafe với C# Winform</h4>
+
+            <span style="cursor:pointer;"
+                  onclick="toggleBookmark(this)">
+              <i class="fa-regular fa-bookmark"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VIDEO MODAL -->
+  <div id="modal" class="modal" onclick="closeVideo(event)">
+    <div class="modal-card">
+      <div class="modal-head">
+        <div>Video giới thiệu</div>
+        <button class="modal-close" onclick="closeVideo(event)">&times;</button>
+      </div>
+      <iframe id="player" class="video" src=""></iframe>
+    </div>
+  </div>
+
+  <!-- External JS -->
+  <script src="./app.js" defer></script>
+</body>
+</html>
