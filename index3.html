@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HƯỚNG DẪN CHỌN PHÒNG HỌP DÙNG MS OUTLOOK</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --purple:#7a1fa2;
+      --text:#111827;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --card:#ffffff;
+      --bg:#f5f6f8;
+    }
+    body{ background:var(--bg); color:var(--text); }
+    .doc-card{ border:1px solid var(--border); border-radius:12px; background:var(--card); }
+    .doc-inner{ padding:20px; }
+
+    /* Header */
+    .doc-title{ font-size:28px; line-height:1.2; font-weight:800; margin:0 0 10px; }
+    .sub-title{ font-size:16px; color:var(--muted); margin:0 0 8px; font-weight:600; }
+    .meta{ color:var(--muted); font-size:13px; }
+    .meta .dot{ margin:0 8px; opacity:.7; }
+    .tag{
+      display:inline-block;
+      padding:3px 10px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      font-size:12px;
+      color:#111;
+      background:#fff;
+      margin-right:6px;
+      margin-top:6px;
+    }
+    .more-btn{
+      border:0;
+      background:transparent;
+      color:#6b7280;
+      padding:6px 10px;
+      border-radius:8px;
+    }
+    .more-btn:hover{ background:#f3f4f6; }
+
+    /* Article headings like screenshot */
+    article h2{
+      color:var(--purple);
+      font-weight:900;
+      margin-top:26px;
+      margin-bottom:10px;
+      font-size:30px;
+    }
+    article p{ margin-bottom:10px; }
+    .step-desc{
+      font-size:16px;
+      line-height:1.55;
+    }
+    .step-desc .en{
+      color:var(--muted);
+      margin-top:4px;
+    }
+
+    /* Image placeholders */
+    .img-placeholder{
+      border:2px dashed var(--border);
+      border-radius:12px;
+      background:#fafafa;
+      padding:16px;
+      margin:10px 0 14px;
+      min-height:160px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .img-placeholder small{ display:block; font-weight:500; }
+
+    /* Outline (right) */
+    .outline{
+      border:1px solid var(--border);
+      border-radius:12px;
+      background:#fff;
+      padding:14px;
+    }
+    .outline-title{
+      font-weight:800;
+      margin:0 0 10px;
+    }
+    .outline a{
+      display:block;
+      color:#111;
+      text-decoration:none;
+      padding:6px 8px;
+      border-radius:8px;
+      font-size:14px;
+    }
+    .outline a:hover{ background:#f3f4f6; }
+    .outline a.active{
+      background:rgba(122,31,162,.10);
+      color:var(--purple);
+      font-weight:700;
+    }
+    .sticky-top-offset{ position:sticky; top:16px; }
+
+    /* Print-friendly */
+    @media print{
+      body{ background:#fff; }
+      .outline, .more-btn { display:none !important; }
+      .doc-card{ border:0; box-shadow:none !important; }
+      .doc-inner{ padding:0; }
+      article h2{ page-break-after:avoid; }
+      .img-placeholder{ border:1px solid #bbb; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container my-4">
+    <div class="doc-card shadow-sm">
+      <div class="doc-inner">
+
+        <!-- HEADER -->
+        <div class="d-flex align-items-start gap-3">
+
+          <!-- title/meta -->
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-between gap-2">
+              <div>
+                <h1 class="doc-title mb-1">HƯỚNG DẪN CHỌN PHÒNG HỌP DÙNG MS OUTLOOK</h1>
+                <p class="sub-title">GUIDE TO SELECT MEETING ROOM USING MS OUTLOOK</p>
+              </div>
+
+              <button class="more-btn" type="button" title="Tuỳ chọn">
+                <i class="bi bi-three-dots fs-4"></i>
+              </button>
+            </div>
+
+            <div class="meta d-flex flex-wrap align-items-center gap-2">
+              <span><i class="bi bi-person-circle me-1"></i>IT Support</span>
+              <span class="dot">•</span>
+              <span><i class="bi bi-clock me-1"></i>Cập nhật: <b>05/02/2026</b></span>
+              <span class="dot">•</span>
+              <span><i class="bi bi-file-earmark-text me-1"></i>Hướng dẫn nội bộ</span>
+            </div>
+
+            <div class="mt-2">
+              <span class="tag">outlook</span>
+              <span class="tag">meeting room</span>
+              <span class="tag">calendar</span>
+            </div>
+          </div>
+        </div>
+
+        <hr class="my-3">
+
+        <!-- BODY -->
+        <div class="row g-4">
+          <!-- LEFT: content -->
+          <div class="col-lg-9">
+            <article id="article">
+
+              <h2 id="step-1">Bước 1</h2>
+              <div class="step-desc">
+                <div><b>Mở</b> <i>New Items</i>, chọn <b>Meeting</b></div>
+                <div class="en">Click on <b>New Items</b>, select <b>Meeting</b></div>
+              </div>
+              <div class="img-placeholder">
+                <div>
+                  <img src="img/B1.png" alt="Ảnh minh hoạ Bước 1 (Screenshot)">
+                  
+                </div>
+              </div>
+
+              <h2 id="step-2">Bước 2</h2>
+              <div class="step-desc">
+                <div>Nhấp chọn <b>Rooms…</b></div>
+                <div class="en">Click on <b>Rooms…</b></div>
+              </div>
+              <div class="img-placeholder">
+                <div>
+                  <img src="img/B2.png" alt="Ảnh minh hoạ Bước 2 (Screenshot)">
+                  
+                </div>
+              </div>
+
+              <h2 id="step-3">Bước 3</h2>
+              <div class="step-desc">
+                <div>Nhấp chọn <b>tất cả các phòng họp</b> và nhấn phím <b>Enter</b></div>
+                <div class="en">Drag the mouse to select <b>all meeting rooms</b> then hit <b>Enter</b></div>
+              </div>
+              <div class="img-placeholder">
+                <div>
+                  <img src="img/B3.png" alt="Ảnh minh hoạ Bước 3 (Screenshot)">
+            
+                </div>
+              </div>
+
+              <h2 id="step-4">Bước 4</h2>
+              <div class="step-desc">
+                <div>Chọn <b>ngày</b> → <b>Phòng</b> → <b>Thời gian</b> sẽ sử dụng phòng họp</div>
+                <div class="en">Select the desired <b>date</b> → <b>Available Room</b> → expected <b>usage time</b></div>
+              </div>
+              <div class="img-placeholder">
+                <div>
+                  <img src="img/b5.png" alt="Ảnh minh hoạ Bước 4 (Screenshot)">
+                  
+                </div>
+              </div>
+
+              <h2 id="step-5">Bước 5</h2>
+              <div class="step-desc">
+                <div>Điền các thông tin khác như <b>tiêu đề</b>, <b>người tham dự</b> cuộc họp…</div>
+                <div class="en">Input other information such as <b>subject</b>, <b>attendees</b>…</div>
+              </div>
+              <div class="img-placeholder">
+                <div>
+                  <img src="img/b6.png" alt="Ảnh minh hoạ Bước 5 (Screenshot)">
+                  
+                </div>
+              </div>
+
+              <h2 id="end">END</h2>
+              <p class="text-muted mb-0">Hoàn tất. / Completed.</p>
+            </article>
+          </div>
+
+          <!-- RIGHT: outline -->
+          <div class="col-lg-3 d-none d-lg-block">
+            <div class="sticky-top-offset">
+              <div class="outline" id="outline">
+                <div class="outline-title">Nội dung hướng dẫn</div>
+                <a href="#step-1">Bước 1</a>
+                <a href="#step-2">Bước 2</a>
+                <a href="#step-3">Bước 3</a>
+                <a href="#step-4">Bước 4</a>
+                <a href="#step-5">Bước 5</a>
+                <a href="#end">END</a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /row -->
+      </div><!-- /inner -->
+    </div><!-- /card -->
+  </div><!-- /container -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('#outline a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(!el) return;
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+        history.replaceState(null,'',id);
+      });
+    });
+
+    // Outline active on scroll
+    const outlineLinks = Array.from(document.querySelectorAll('#outline a[href^="#"]'));
+    const targets = outlineLinks
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    const obs = new IntersectionObserver((entries)=>{
+      const visible = entries.filter(x=>x.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];
+      if(!visible) return;
+
+      outlineLinks.forEach(a=>a.classList.remove('active'));
+      const active = outlineLinks.find(a => a.getAttribute('href') === '#'+visible.target.id);
+      if(active) active.classList.add('active');
+    }, { rootMargin: "-20% 0px -70% 0px", threshold: [0.1,0.2,0.35,0.5,0.7,1] });
+
+    targets.forEach(t=>obs.observe(t));
+  </script>
+</body>
+</html>

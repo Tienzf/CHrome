@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tìm hiểu về Gazebo</title>
+
+  <style>
+    :root{
+      --accent:#ff6600;
+      --muted:#6b7280;
+      --border:#e5e7eb;
+      --bg:#ffffff;
+      --soft:#fafafa;
+      --shadow: 0 10px 25px rgba(0,0,0,.06);
+      --radius: 14px;
+      --headerH: 52px;     /* chiều cao header list (bên phải) */
+      --gapBottom: 10px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0; color:#111; background:#fff; line-height:1.6;
+    }
+
+    /* ===== Breadcrumb ===== */
+    .breadcrumb{
+      max-width: 1200px;
+      margin: 14px auto 0;
+      padding: 10px 14px;
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      align-items:center;
+    }
+    .breadcrumb a{
+      color:#111; text-decoration:none;
+      padding:4px 10px;
+      border-radius: 999px;
+      background:#f9fafb;
+      border:1px solid #f1f5f9;
+    }
+    .breadcrumb a:hover{ text-decoration:underline; }
+    .breadcrumb .active{
+      padding:4px 10px;
+      border-radius: 999px;
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color: var(--accent);
+      font-weight:800;
+    }
+    .breadcrumb .sep{ color:#9ca3af; }
+
+    /* ===== Layout containers ===== */
+    .container{
+      max-width: 1200px;
+      margin: 14px auto 24px;
+      padding: 0 14px;
+    }
+
+    /* ===== Card/Block ===== */
+    .block{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+
+    /* Header (mặc định) */
+    .block-header{
+      height: var(--headerH);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 0 14px;
+      color:#fff;
+      font-weight: 800;
+      background: linear-gradient(90deg,#ff7a18,#ffb703);
+    }
+
+    .block-content{ padding: 14px; }
+    .p-0{ padding:0 !important; }
+
+    /* ===== Row top ===== */
+    .row-top{
+      display:grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .row-top{ grid-template-columns: 1fr; }
+      #listBlock{ height:auto !important; }
+      #lectures-list{ height:auto !important; }
+    }
+
+    /* ================================
+       ✅ FIX THEO YÊU CẦU:
+       - XÓA tên "Video bài học" (header)
+       - BỎ thanh vàng
+       - Video ăn luôn phần trắng (không chừa 52px)
+       - Nhưng vẫn GIỮ đúng chiều cao so với cột phải
+       => video-box sẽ có (16:9 + headerH)
+    ================================= */
+    #videoBlock .block-header{
+      display:none; /* ✅ không còn khoảng trắng */
+    }
+    #videoBlock .block-content{
+      padding:0 !important; /* sát viền card */
+    }
+    .video-box{
+      position:relative;
+      width:100%;
+      height:0;
+      padding-top: calc(56.25% + var(--headerH)); /* ✅ 16:9 + 52px */
+      background:#000;
+    }
+    .video-box iframe{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      border:0;
+      display:block;
+      background:#000;
+    }
+
+    /* ===== Right column: lecture list ===== */
+    .lecture-flex{
+      height: calc(100% - var(--headerH)); /* header thật của list vẫn giữ */
+      padding: 14px;
+      display:flex;
+      flex-direction:column;
+      min-height:0;
+    }
+    .lecture-search{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      margin-bottom: 12px;
+      flex: 0 0 auto;
+    }
+    .lecture-search input{
+      width:100%;
+      padding: 10px 12px;
+      border:1px solid #d1d5db;
+      border-radius: 10px;
+      outline:none;
+    }
+    .lecture-search input:focus{
+      border-color:#f59e0b;
+      box-shadow: 0 0 0 4px rgba(245,158,11,.18);
+    }
+
+    .lecture-list{
+      list-style:none;
+      padding:0; margin:0;
+      overflow:auto;
+      border:1px solid #eef2f7;
+      border-radius: 12px;
+      background:#fff;
+      min-height:0;
+    }
+    .lecture-list a{
+      display:block;
+      padding: 12px 12px;
+      text-decoration:none;
+      color:#111;
+      border-bottom: 1px solid #f1f5f9;
+      font-size: 14.5px;
+    }
+    .lecture-list a:hover{ background:#f9fafb; }
+    .lecture-list a.active{
+      background:#fff7ed;
+      border-left: 4px solid var(--accent);
+      padding-left: 8px;
+      font-weight: 800;
+      color:#111;
+    }
+
+    /* ===== Row content ===== */
+    .row-content{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .row-content{ grid-template-columns: 1fr; }
+      .toc{ position: static !important; }
+    }
+
+    .toc{
+      position: sticky;
+      top: 16px;
+      align-self:start;
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px;
+      background: var(--soft);
+      box-shadow: var(--shadow);
+    }
+    .toc h3{ margin:0 0 10px; font-size:16px; }
+    .toc ul{ margin:0; padding-left: 18px; }
+    .toc a{ color:#111; text-decoration:none; }
+    .toc a:hover{ text-decoration:underline; }
+    .toc hr{ border:none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+    main{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      background:#fff;
+    }
+
+    .badge{
+      display:inline-block;
+      padding: 4px 10px;
+      border-radius:999px;
+      background:#fff7ed;
+      border:1px solid #fed7aa;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .note{ color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+
+<body>
+
+  <nav class="breadcrumb">
+    <a class="breadcrumb-item" href="/">🏠</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/learn">Khóa học</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/learn/lap-trinh-7">Lập trình</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/learn/lap-trinh/lap-trinh-robot-7-41">Lập trình Robot</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/course/lam-quen-voi-gazebo-77">Làm quen với Gazebo</a>
+    <span class="sep">›</span>
+    <span class="breadcrumb-item active">Tìm hiểu về Gazebo</span>
+  </nav>
+
+  <div class="container">
+
+    <div class="row-top" id="rowTop">
+
+      <!-- Video -->
+      <div class="block" id="videoBlock">
+        <div class="block-header">Video bài học</div>
+        <div class="block-content p-0">
+          <div class="video-box" id="videoBox">
+            <iframe
+              oncontextmenu="return false"
+              id="ytplayer"
+              type="text/html"
+              src="https://www.youtube.com/embed/RcFZINo0WL4"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danh sách bài học -->
+      <div class="block" id="listBlock">
+        <div class="block-header">Danh sách bài học</div>
+
+        <div class="block-content lecture-flex">
+
+          <div class="lecture-search">
+            <input type="text" id="input-search-lecture" placeholder="Tìm bài học..." />
+          </div>
+
+          <ul class="lecture-list" id="lectures-list">
+            <li><a id="lecture-1" href="/course/lam-quen-voi-gazebo/cai-dat-moi-truong-ros2-4543">01. Cài đặt môi trường ROS2</a></li>
+            <li><a id="lecture-2" class="active" href="/course/lam-quen-voi-gazebo/tim-hieu-ve-gazebo-4544">02. Tìm hiểu về Gazebo</a></li>
+            <li><a id="lecture-3" href="/course/lam-quen-voi-gazebo/cai-dat-va-khoi-dong-gazebo-4545">03. Cài đặt và khởi động Gazebo</a></li>
+            <li><a id="lecture-4" href="/course/lam-quen-voi-gazebo/lam-viec-voi-world-cua-gazebo-4546">04. Làm việc với World của Gazebo</a></li>
+            <li><a id="lecture-5" href="/course/lam-quen-voi-gazebo/di-chuyen-robot-trong-moi-truong-gazebo-4547">05. Di chuyển robot trong môi trường Gazebo</a></li>
+            <li><a id="lecture-6" href="/course/lam-quen-voi-gazebo/gan-cam-bien-lidar-va-xu-ly-du-lieu-quet-trong-gazebo-4548">06. Gắn cảm biến LIDAR và xử lý dữ liệu quét trong Gazebo</a></li>
+            <li><a id="lecture-7" href="/course/lam-quen-voi-gazebo/xu-ly-du-lieu-lidar-de-robot-tu-tranh-vat-the-trong-gazebo-4549">07. Xử lý dữ liệu LIDAR để robot tự tránh vật thể trong Gazebo</a></li>
+            <li><a id="lecture-8" href="/course/lam-quen-voi-gazebo/tao-ban-do-va-dinh-vi-robot-slam-co-ban-4550">08. Tạo bản đồ và định vị robot (SLAM cơ bản)</a></li>
+            <li><a id="lecture-9" href="/course/lam-quen-voi-gazebo/dieu-huong-tu-dong-navigation-trong-gazebo-4551">09. Điều hướng tự động (Navigation) trong Gazebo</a></li>
+            <li><a id="lecture-10" href="/course/lam-quen-voi-gazebo/tu-hanh-hoan-chinh---robot-tuan-tra-ngau-nhien-trong-gazebo-4552">10. Tự hành hoàn chỉnh – Robot tuần tra ngẫu nhiên trong Gazebo</a></li>
+          </ul>
+
+          <input type="hidden" id="prevLecture" value="/course/lam-quen-voi-gazebo/cai-dat-moi-truong-ros2-4543">
+          <input type="hidden" id="nextLecture" value="/course/lam-quen-voi-gazebo/cai-dat-va-khoi-dong-gazebo-4545">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row-content">
+      <aside class="toc">
+        <h3>Nội dung bài viết</h3>
+        <ul>
+          <li><a href="#docout-0">Dẫn nhập</a></li>
+          <li><a href="#docout-1">Nội dung</a></li>
+          <li><a href="#docout-2">Gazebo là gì?</a></li>
+          <li><a href="#docout-9">Thảo luận</a></li>
+        </ul>
+        <hr />
+        <div class="note">Tip: Có thể thêm nút “Học nhanh”/video ở đây nếu cần.</div>
+      </aside>
+
+      <main id="content-post">
+        <h1><span class="badge">Tìm hiểu về Gazebo</span></h1>
+        <h2 id="docout-0">Dẫn nhập</h2>
+        <p>...</p>
+        <hr />
+        <h2 id="docout-9">Thảo luận</h2>
+        <p class="note">Nếu bạn có thắc mắc, hãy đặt câu hỏi ở phần bình luận hoặc mục HỎI &amp; ĐÁP.</p>
+      </main>
+    </div>
+
+  </div>
+
+  <script>
+    // ===== Tìm bài học (filter) =====
+    const input = document.getElementById('input-search-lecture');
+    const list = document.getElementById('lectures-list');
+    const links = Array.from(list.querySelectorAll('a'));
+
+    input.addEventListener('input', () => {
+      const q = input.value.trim().toLowerCase();
+      links.forEach(a => {
+        const ok = a.textContent.toLowerCase().includes(q);
+        a.parentElement.style.display = ok ? '' : 'none';
+      });
+    });
+
+    // ===== Sync height =====
+    const videoBlock = document.getElementById('videoBlock');
+    const listBlock  = document.getElementById('listBlock');
+
+    function isMobile(){
+      return window.matchMedia('(max-width: 980px)').matches;
+    }
+
+    function syncHeights(){
+      if (!videoBlock || !listBlock) return;
+
+      if (isMobile()){
+        listBlock.style.height = 'auto';
+        const ul = document.getElementById('lectures-list');
+        if (ul) ul.style.height = 'auto';
+        return;
+      }
+
+      const listContent = listBlock.querySelector('.block-content.lecture-flex');
+      const searchBox   = listBlock.querySelector('.lecture-search');
+      const ul          = document.getElementById('lectures-list');
+
+      if (!listContent || !searchBox || !ul) return;
+
+      const targetH = videoBlock.getBoundingClientRect().height;
+      listBlock.style.height = targetH + 'px';
+
+      const contentH = listContent.getBoundingClientRect().height;
+
+      const searchH = searchBox.getBoundingClientRect().height;
+      const searchStyle = getComputedStyle(searchBox);
+      const searchMarginBottom = parseFloat(searchStyle.marginBottom) || 0;
+
+      const rootStyle = getComputedStyle(document.documentElement);
+      const gapBottom = parseFloat(rootStyle.getPropertyValue('--gapBottom')) || 10;
+
+      const ulH = Math.max(140, contentH - searchH - searchMarginBottom - gapBottom);
+      ul.style.height = ulH + 'px';
+    }
+
+    window.addEventListener('load', syncHeights);
+    window.addEventListener('resize', syncHeights);
+
+    if ('ResizeObserver' in window && videoBlock){
+      const ro = new ResizeObserver(() => syncHeights());
+      ro.observe(videoBlock);
+    }
+  </script>
+</body>
+</html>
