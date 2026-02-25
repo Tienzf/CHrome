@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tìm hiểu về Gazebo</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+
+  <nav class="breadcrumb">
+    <a class="breadcrumb-item" href="/">🏠</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/learn">Khóa học</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/learn/lap-trinh-7">Lập trình</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/learn/lap-trinh/lap-trinh-robot-7-41">Lập trình Robot</a>
+    <span class="sep">›</span>
+    <a class="breadcrumb-item" href="/course/lam-quen-voi-gazebo-77">Làm quen với Gazebo</a>
+    <span class="sep">›</span>
+    <span class="breadcrumb-item active">Tìm hiểu về Gazebo</span>
+  </nav>
+
+  <div class="container">
+
+    <div class="row-top" id="rowTop">
+
+      <!-- Video -->
+      <div class="block" id="videoBlock">
+        <div class="block-header">Video bài học</div>
+        <div class="block-content p-0">
+          <div class="video-box" id="videoBox">
+            <iframe
+              oncontextmenu="return false"
+              id="ytplayer"
+              type="text/html"
+              src="https://www.youtube.com/embed/RcFZINo0WL4"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- Danh sách bài học -->
+      <div class="block" id="listBlock">
+        <div class="block-header">Danh sách bài học</div>
+
+        <div class="block-content lecture-flex">
+
+          <div class="lecture-search">
+            <input type="text" id="input-search-lecture" placeholder="Tìm bài học..." />
+          </div>
+
+          <ul class="lecture-list" id="lectures-list">
+            <li><a id="lecture-1" href="/course/lam-quen-voi-gazebo/cai-dat-moi-truong-ros2-4543">01. Cài đặt môi trường ROS2</a></li>
+            <li><a id="lecture-2" class="active" href="/course/lam-quen-voi-gazebo/tim-hieu-ve-gazebo-4544">02. Tìm hiểu về Gazebo</a></li>
+            <li><a id="lecture-3" href="/course/lam-quen-voi-gazebo/cai-dat-va-khoi-dong-gazebo-4545">03. Cài đặt và khởi động Gazebo</a></li>
+            <li><a id="lecture-4" href="/course/lam-quen-voi-gazebo/lam-viec-voi-world-cua-gazebo-4546">04. Làm việc với World của Gazebo</a></li>
+            <li><a id="lecture-5" href="/course/lam-quen-voi-gazebo/di-chuyen-robot-trong-moi-truong-gazebo-4547">05. Di chuyển robot trong môi trường Gazebo</a></li>
+            <li><a id="lecture-6" href="/course/lam-quen-voi-gazebo/gan-cam-bien-lidar-va-xu-ly-du-lieu-quet-trong-gazebo-4548">06. Gắn cảm biến LIDAR và xử lý dữ liệu quét trong Gazebo</a></li>
+            <li><a id="lecture-7" href="/course/lam-quen-voi-gazebo/xu-ly-du-lieu-lidar-de-robot-tu-tranh-vat-the-trong-gazebo-4549">07. Xử lý dữ liệu LIDAR để robot tự tránh vật thể trong Gazebo</a></li>
+            <li><a id="lecture-8" href="/course/lam-quen-voi-gazebo/tao-ban-do-va-dinh-vi-robot-slam-co-ban-4550">08. Tạo bản đồ và định vị robot (SLAM cơ bản)</a></li>
+            <li><a id="lecture-9" href="/course/lam-quen-voi-gazebo/dieu-huong-tu-dong-navigation-trong-gazebo-4551">09. Điều hướng tự động (Navigation) trong Gazebo</a></li>
+            <li><a id="lecture-10" href="/course/lam-quen-voi-gazebo/tu-hanh-hoan-chinh---robot-tuan-tra-ngau-nhien-trong-gazebo-4552">10. Tự hành hoàn chỉnh – Robot tuần tra ngẫu nhiên trong Gazebo</a></li>
+          </ul>
+
+          <input type="hidden" id="prevLecture" value="/course/lam-quen-voi-gazebo/cai-dat-moi-truong-ros2-4543">
+          <input type="hidden" id="nextLecture" value="/course/lam-quen-voi-gazebo/cai-dat-va-khoi-dong-gazebo-4545">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row-content">
+      <aside class="toc">
+        <h3>Nội dung bài viết</h3>
+        <ul>
+          <li><a href="#docout-0">Dẫn nhập</a></li>
+          <li><a href="#docout-1">Nội dung</a></li>
+          <li><a href="#docout-2">Gazebo là gì?</a></li>
+          <li><a href="#docout-9">Thảo luận</a></li>
+        </ul>
+        <hr />
+        <div class="note">Tip: Có thể thêm nút “Học nhanh”/video ở đây nếu cần.</div>
+      </aside>
+
+      <main id="content-post">
+        <h1><span class="badge">Tìm hiểu về Gazebo</span></h1>
+        <h2 id="docout-0">Dẫn nhập</h2>
+        <p>...</p>
+        <hr />
+        <h2 id="docout-9">Thảo luận</h2>
+        <p class="note">Nếu bạn có thắc mắc, hãy đặt câu hỏi ở phần bình luận hoặc mục HỎI &amp; ĐÁP.</p>
+      </main>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script src="./app.js" defer></script>
+</body>
+</html>
