@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HowKteam Clone - Home</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="/spx-demo/assets/styles.css" />
+</head>
+<body>
+
+<header class="header-bar" id="page-header">
+  <div class="content-header">
+    <div class="content-header-section">
+      <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;">
+        <img src="/Content/images/logo/kteam_w_70x32.png" alt="Logo" style="height:32px;width:auto;">
+        <span style="font-weight:900;color:#fff;">HowKteam Clone</span>
+      </a>
+    </div>
+
+    <div class="content-header-section d-none d-lg-inline mr-auto">
+      <ul class="nav-main-header">
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/spx-demo/learn/">Khóa học</a></li>
+        <li><a href="/spx-demo/documentation/">Bài viết</a></li>
+      </ul>
+    </div>
+
+    <div class="header-actions">
+      <a class="btn btn-circle" href="/search" title="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+      <div class="btn-group">
+        <button class="btn btn-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Tạo mới">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#"><i class="fa-regular fa-circle-question"></i> Đặt câu hỏi</a>
+          <a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Viết bài</a>
+          <a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Tạo series</a>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="/Content/images/avatar/avatar.png" class="avatar-xs" alt="Avatar">
+          <span>Tài khoản</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> Đăng nhập</a>
+          <a class="dropdown-item" href="#"><i class="fa-solid fa-user-plus"></i> Đăng ký</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <h1 style="margin:0 0 10px;font-weight:900;">Free Education</h1>
+  <p style="color:var(--muted);margin-top:0">Trang demo: Home → Learn → Course → Lesson (video+list) → Documentation.</p>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
+    <a class="btn" href="/spx-demo/learn/"><i class="fa-solid fa-graduation-cap"></i> Vào trang Khóa học</a>
+    <a class="btn" href="/spx-demo/documentation/"><i class="fa-regular fa-file-lines"></i> Vào trang Bài viết</a>
+    <a class="btn" href="/spx-demo/course/lam-quen-voi-gazebo-77/"><i class="fa-solid fa-robot"></i> Course Gazebo</a>
+  </div>
+</div>
+
+<script src="/spx-demo/assets/app.js"></script>
+</body>
+</html>

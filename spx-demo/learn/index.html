@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Learn - Course List</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="/spx-demo/assets/styles.css" />
+</head>
+<body>
+
+<!-- header: copy y hệt index.html -->
+<header class="header-bar" id="page-header">
+  <div class="content-header">
+    <div class="content-header-section">
+      <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;">
+        <img src="/Content/images/logo/kteam_w_70x32.png" alt="Logo" style="height:32px;width:auto;">
+        <span style="font-weight:900;color:#fff;">HowKteam Clone</span>
+      </a>
+    </div>
+
+    <div class="content-header-section d-none d-lg-inline mr-auto">
+      <ul class="nav-main-header">
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/spx-demo/learn/">Khóa học</a></li>
+        <li><a href="/spx-demo/documentation/">Bài viết</a></li>
+      </ul>
+    </div>
+
+    <div class="header-actions">
+      <a class="btn btn-circle" href="/search" title="Tìm kiếm"><i class="fa-solid fa-magnifying-glass"></i></a>
+      <div class="btn-group">
+        <button class="btn btn-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Tạo mới">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#"><i class="fa-regular fa-circle-question"></i> Đặt câu hỏi</a>
+          <a class="dropdown-item" href="#"><i class="fa-regular fa-file-lines"></i> Viết bài</a>
+          <a class="dropdown-item" href="#"><i class="fa-solid fa-list"></i> Tạo series</a>
+        </div>
+      </div>
+      <div class="btn-group">
+        <button class="btn btn-rounded" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="/Content/images/avatar/avatar.png" class="avatar-xs" alt="Avatar">
+          <span>Tài khoản</span>
+          <i class="fa-solid fa-angle-down"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#"><i class="fa-regular fa-user"></i> Đăng nhập</a>
+          <a class="dropdown-item" href="#"><i class="fa-solid fa-user-plus"></i> Đăng ký</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <h2 style="margin:0 0 8px;font-weight:900;">Tất cả khóa học</h2>
+  <p style="color:var(--muted);margin-top:0">Demo danh sách khóa học (cards + overlay + modal video).</p>
+
+  <div class="row" id="course-list">
+
+    <!-- item -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="block block-link-shadow ribbon-success">
+        <div class="options-container">
+          <img class="img-fluid options-item w-100"
+            src="https://images.unsplash.com/photo-1526378722445-6e45d0b2d47f?q=80&w=1200&auto=format&fit=crop"
+            alt="Làm quen với Gazebo">
+          <div class="options-overlay bg-black-op-75">
+            <div class="options-overlay-content">
+              <a class="btn btn-noborder btn-square btn-secondary min-width-75"
+                 href="javascript:void(0);"
+                 data-src="https://www.youtube.com/embed/RcFZINo0WL4?autoplay=1"
+                 onclick="openVideo(this)">
+                <i class="fa-solid fa-video"></i> Giới thiệu
+              </a>
+              <a class="btn btn-noborder btn-square btn-primary min-width-75"
+                 href="/spx-demo/course/lam-quen-voi-gazebo-77/">
+                <i class="fa-regular fa-circle-play"></i> Học nhanh
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/spx-demo/course/lam-quen-voi-gazebo-77/" style="text-decoration:none">
+          <div class="block-content">
+            <h4 class="font-size-default font-w600 mb-10 text-overflow-dot" title="Làm quen với Gazebo">
+              Làm quen với Gazebo
+            </h4>
+
+            <div class="text-warning font-size-sm" style="display:flex;align-items:center;gap:10px;">
+              <span>
+                <i class="fa-solid fa-star fa-fw"></i>
+                <i class="fa-solid fa-star fa-fw"></i>
+                <i class="fa-solid fa-star fa-fw"></i>
+                <i class="fa-solid fa-star fa-fw"></i>
+                <i class="fa-regular fa-star fa-fw"></i>
+              </span>
+
+              <span class="text-muted"><span class="font-w600">5.0</span> (5)</span>
+
+              <span class="text-secondary font-size-lg"
+                    style="margin-left:auto; cursor:pointer;"
+                    onclick="toggleBookmark(this); return false;"
+                    title="Lưu">
+                <i class="fa-regular fa-bookmark"></i>
+              </span>
+            </div>
+
+            <div class="mt-10">
+              <span class="font-size-xs badge badge-warning text-dark">From Kteam</span>
+            </div>
+          </div>
+
+          <div class="block-content block-content-sm bg-body-light text-muted font-size-sm">
+            <div style="display:inline-block;margin-right:10px;">
+              <i class="fa-solid fa-book-open fa-fw"></i> <strong>10</strong> bài học
+            </div>
+            <div style="display:inline-block;">
+              <i class="fa-solid fa-eye fa-fw"></i> <strong>10.000</strong> lượt xem
+            </div>
+          </div>
+        </a>
+
+        <div class="block-content useravatar-edit-container">
+          <span class="text-muted">Tác giả/Dịch giả:</span>
+          <a href="#" class="useravatar-edit">
+            <img src="https://i.pravatar.cc/64?img=12" class="avatar-sm" loading="lazy" alt="K9">
+            <span style="color:#cbd5e1;font-weight:900;">K9</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- bạn copy thêm card khác nếu muốn -->
+
+  </div>
+</div>
+
+<!-- modal -->
+<div id="modal" class="modal" onclick="closeVideo(event)">
+  <div class="modal-card">
+    <div class="modal-head">
+      <div>Video giới thiệu</div>
+      <button class="modal-close" onclick="closeVideo(event)" aria-label="Đóng">&times;</button>
+    </div>
+    <iframe id="player" class="video" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script src="/spx-demo/assets/app.js"></script>
+</body>
+</html>

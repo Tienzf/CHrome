@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tìm hiểu về Gazebo</title>
+
+  <link rel="stylesheet" href="/spx-demo/assets/styles.css" />
+</head>
+
+<body class="light" style="padding-top:110px;">
+  <!-- header (copy rút gọn) -->
+  <header class="header-bar" id="page-header">
+    <div class="content-header">
+      <div class="content-header-section">
+        <a href="/" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;">
+          <img src="/Content/images/logo/kteam_w_70x32.png" alt="Logo" style="height:32px;width:auto;">
+          <span style="font-weight:900;color:#fff;">HowKteam Clone</span>
+        </a>
+      </div>
+
+      <div class="content-header-section d-none d-lg-inline mr-auto">
+        <ul class="nav-main-header">
+          <li><a href="/spx-demo/learn/">Khóa học</a></li>
+          <li><a href="/spx-demo/documentation/">Bài viết</a></li>
+        </ul>
+      </div>
+
+      <div class="header-actions">
+        <a class="btn btn-circle" href="/spx-demo/course/lam-quen-voi-gazebo-77/" title="Course">
+          <i class="fa-solid fa-arrow-left"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb">
+    <a href="/">🏠</a><span class="sep">›</span>
+    <a href="/spx-demo/learn/">Khóa học</a><span class="sep">›</span>
+    <a href="/spx-demo/course/lam-quen-voi-gazebo-77/">Làm quen với Gazebo</a><span class="sep">›</span>
+    <span class="active">Tìm hiểu về Gazebo</span>
+  </nav>
+
+  <div class="vc-container">
+    <div class="vc-row-top" id="rowTop">
+
+      <!-- Video -->
+      <div class="vc-block" id="videoBlock">
+        <div class="vc-header">Video bài học</div>
+        <div class="vc-body p-0">
+          <div class="video-box" id="videoBox">
+            <iframe
+              oncontextmenu="return false"
+              id="ytplayer"
+              src="https://www.youtube.com/embed/RcFZINo0WL4"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- List -->
+      <div class="vc-block" id="listBlock">
+        <div class="vc-header">Danh sách bài học</div>
+        <div class="vc-body lecture-flex">
+          <div class="lecture-search">
+            <input type="text" id="input-search-lecture" placeholder="Tìm bài học..." />
+          </div>
+
+          <ul class="lecture-list" id="lectures-list">
+            <li><a href="#">01. Cài đặt môi trường ROS2</a></li>
+            <li><a class="active" href="/spx-demo/course/lam-quen-voi-gazebo/tim-hieu-ve-gazebo-4544/">02. Tìm hiểu về Gazebo</a></li>
+            <li><a href="#">03. Cài đặt và khởi động Gazebo</a></li>
+          </ul>
+
+          <input type="hidden" id="prevLecture" value="#">
+          <input type="hidden" id="nextLecture" value="#">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="vc-row-content">
+      <aside class="toc">
+        <h3>Nội dung bài viết</h3>
+        <ul>
+          <li><a href="#docout-0">Dẫn nhập</a></li>
+          <li><a href="#docout-2">Gazebo là gì?</a></li>
+          <li><a href="#docout-9">Thảo luận</a></li>
+        </ul>
+      </aside>
+
+      <main id="content-post">
+        <h1><span class="badge2">Tìm hiểu về Gazebo</span></h1>
+
+        <h2 id="docout-0">Dẫn nhập</h2>
+        <p>Ở bài học này, chúng ta làm quen khái niệm mô phỏng robot và vai trò của Gazebo.</p>
+
+        <h2 id="docout-2">Gazebo là gì?</h2>
+        <p>Gazebo là công cụ mô phỏng 3D để bạn thử nghiệm robot trong môi trường ảo, an toàn và tiết kiệm chi phí.</p>
+
+        <hr />
+        <h2 id="docout-9">Thảo luận</h2>
+        <p style="color:#6b7280;">Nếu bạn có thắc mắc, hãy đặt câu hỏi ở phần bình luận hoặc mục Hỏi đáp.</p>
+      </main>
+    </div>
+  </div>
+
+  <script src="/spx-demo/assets/app.js"></script>
+</body>
+</html>
